@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <title>Jobs</title>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <!-- below "application is the application.css MANIFEST which pulls eveything else in" -->
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  <header class="row">
+    <h1 class="two columns">
+      <%= link_to("root_path") do %>
+        <%= image_tag "logo.png" %>
+      <% end %>
+    </h1>
+
+    <nav class="ten columns">
+
+      <% if current_user.present? %>
+          LOGGED IN as <%= current_user.name %>
+                <!--
+                <%= session[:user_id] %>
+                <%= User.find(session[:user_id]).name %>
+                <%= current_user %>
+                -->
+          <%= link_to current_user.name, "#" %>
+          <%= link_to "Add a job", "#" %>
+          <%= link_to "Account", "#" %>
+          <%= link_to "Log out", "#" %>
+              
+      <% else %>
+          LOGGED OUT
+      <% end %> 
+    
+      <%= link_to "Log in", "#" %>
+
+      <!-- added "new_user_path" below as the destination for sign up-->
+	    <%= link_to "Sign up", new_user_path %>
+    </nav>
+  </header>
+
+  <% flash.each do |key, value| %>
+    <div class="twelve columns flash <%= key %>"><%= value %></div>
+  <% end %>
+
+  <article class="row">
+    <%= yield %>
+  </article>
+
+  <footer>
+    <p>&copy; <%= Date.today.year %> Onboard Ltd</p>
+  </footer>
+</div> <!--  .container -->
+
+</body>
+</html>
