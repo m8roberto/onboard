@@ -1,11 +1,11 @@
 Onboard::Application.routes.draw do
-  get "sessions/new"
-  get "jobs/index"
-  get "jobs/show"
-  get "jobs/new"
-  get "jobs/edit"
-  # this is where the URLs of our pages are set
+  
+  # to fit in with omniauth's callback urls
+  get "/auth/:provider/callback" => "social_logins#create"
 
+
+
+  # this is where the URLs of our pages are set
   resources   :users
   resources   :jobs
 
