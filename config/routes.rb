@@ -1,4 +1,5 @@
 Onboard::Application.routes.draw do
+  get "sessions/new"
   get "jobs/index"
   get "jobs/show"
   get "jobs/new"
@@ -7,6 +8,10 @@ Onboard::Application.routes.draw do
 
   resources   :users
   resources   :jobs
+
+  # because I don't want to log in twice as a user
+  # let's use a singular resource
+  resource	  :session 	
 
   root "jobs#index"
 
