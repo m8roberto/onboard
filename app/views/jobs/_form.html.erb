@@ -1,0 +1,16 @@
+<%= simple_form_for @job do |f| %>
+
+	 	<%= f.input :title %>
+	 	<%= f.input :description %>
+
+	 	<%= f.input :company_name %>
+	 	<%= f.input :company_url %>
+	 	<%= f.input :company_tagline %>
+	 	
+	 	<%= f.input :location %>
+	 	<%= f.input :phone, as: :string %>
+	 	<%= f.input :application_deadline %>
+	 	<%= f.input :salary, :label => "Fee"%>
+
+	 	<%= f.button :submit %>	 		 		 	
+<% end %>

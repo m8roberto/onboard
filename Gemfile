@@ -62,5 +62,7 @@ gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth-linkedin"
 
+# markdown gem
+gem "rdiscount"
 
 

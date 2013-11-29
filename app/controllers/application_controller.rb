@@ -20,4 +20,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   # right above this is a function - technically the same as current_user() 
 
+  # let's add some authorization
+  def require_user
+      if current_user.nil?
+          flash[:error] = "You must be a user to view this page"
+          redirect_to new_user_path
+      end
+   end       
 end

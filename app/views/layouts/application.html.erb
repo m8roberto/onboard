@@ -13,7 +13,7 @@
 <div class="container">
   <header class="row">
     <h1 class="two columns">
-      <%= link_to("root_path") do %>
+      <%= link_to(root_path) do %>
         <%= image_tag "logo.png" %>
       <% end %>
     </h1>
@@ -28,7 +28,7 @@
                 <%= current_user %>
                 -->
           <%= link_to current_user.name, "#" %>
-          <%= link_to "Add a job", "#" %>
+          <%= link_to "Add a job", new_job_path %>
           <%= link_to "Account", "#" %>
           <%= link_to "Log out", session_path, method: :delete %>
               
